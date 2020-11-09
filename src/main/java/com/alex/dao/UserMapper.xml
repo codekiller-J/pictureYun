@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alex.dao.UserMapper">
+
+    <insert id="addUser" parameterType="User">
+        insert into littleartbook.user(username,
+                                       password,
+                                       email,
+                                       telephone)
+                                        VALUES
+    (#{username},#{password},#{email},#{telephone})
+    </insert>
+
+    <select id="queryAllUser" resultType="User">
+        select * from littleartbook.user
+    </select>
+
+
+    <select id="loginCheck" resultType="User"  >
+        select * from littleartbook.user where username=#{username}
+    </select>
+
+    <select id="userMain" resultType="User">
+        select * from littleartbook.user where username=#{username}
+    </select>
+
+    <update id="modified"  >
+        update littleartbook.user set password=#{password} where username=#{username}
+    </update>
+
+</mapper>

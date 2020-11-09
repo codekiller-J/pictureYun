@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alex.dao.WorksMapper">
+
+    <select id="getDetail"   resultType="Works">
+        select *
+        from littleartbook.works
+        where works_id = #{works_id}
+    </select>
+
+    <select id="getUserImage"  parameterType="int" resultType="string">
+        SELECT
+                works.works_static_image
+        FROM
+             littleartbook.works
+        WHERE
+              works.author_id=#{id}
+    </select>
+
+    <insert id="addWorks" parameterType="Works">
+        insert into littleartbook.works(author_id,
+                                        works_description,
+                                        works_static_image)
+        VALUES (#{author_id},
+                #{works_description},
+                #{works_static_image}
+                )
+
+
+    </insert>
+
+
+</mapper>
