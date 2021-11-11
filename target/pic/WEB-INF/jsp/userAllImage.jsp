@@ -23,7 +23,7 @@
 <c:forEach var="list" items="${requestScope.get('list')}">
 <tr>
 
-    <td><img src="/pic/imgs/${list}" style="display: block;float:left" ></td>
+    <td><img src="/pictureYun_war/imgs/${list}" style="display: block;float:left" ></td>
 
 </tr>
 
